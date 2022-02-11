@@ -1,0 +1,10 @@
+/* main container */
+
+.main__container {
+    position: absolute;
+    width: 1280px;
+    height: 600px;
+    left: 80px;
+    top: 80px;
+}
+

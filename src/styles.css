@@ -1,0 +1,26 @@
+/* background and other stuffs */
+
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~angular-notifier/styles";
+
+/* @import "primeng/resources/themes/saga-green/theme.css";
+@import "primeng/resources/primeng.min.css"; */
+
+
+/* @import "~primeflex/primeflex.css"; */
+
+
+/* @import "~primeicons/primeicons.css"; */
+
+
+/* @import "node_modules/quill/dist/quill.snow.css"; */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,0 +1,154 @@
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Humberger Begin -->
+<div class="humberger__menu__overlay" (click)="humbergerMenuOverlayOnClick()"></div>
+<div class="humberger__menu__wrapper">
+    <div class="humberger__menu__logo">
+        <a href="#"><img src="img/logo.png" alt=""></a>
+    </div>
+    <div class="humberger__menu__cart">
+        <ul *ngIf="userModel?.customer?.role?.roleId == 1">
+            <li>
+                <a title="Món ăn yêu thích" [routerLink]="['/favorite']">
+                    <i class="fa fa-heart tooltipHeader">
+                        <span class="tooltiptext">Món ăn yêu thích</span>
+                    </i>
+                    <span>{{checkFavoriteAmount()}}</span>
+                </a>
+            </li>
+            <li>
+                <a title="Giỏ hàng của bạn" [routerLink]="['/cart']">
+                    <i class="fa fa-shopping-bag tooltipHeader">
+                        <span class="tooltiptext">Giỏ hàng của bạn</span>
+                    </i>
+                    <span>{{checkCartAmount()}}</span>
+                </a>
+            </li>
+
+            <li>
+                <div class="header__top__right__auth">
+                    <div class="header__item__dropdown">
+                        <i class="fa fa-user"></i>
+                        <ul class="header__menu__dropdown dropdown_right">
+                            <li><a [routerLink]="['/accountinfo']">Cập Nhật Tài Khoản</a></li>
+                            <li><a (click)="logout()">Đăng Xuất</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul class="header__ul" *ngIf="userModel == null">
+            <li class="cursor-auto">
+                <div class="header__item__dropdown cursor-pointer">
+                    <i [routerLink]="['/login']" class="fa fa-user mr-2 line-separator-header-mobile">
+                        <span class="footer-ybwc-desc"> Đăng Nhập</span>
+                    </i>
+
+                    <i [routerLink]="['/register']" class="fa ">
+                        <span class="footer-ybwc-desc"> Đăng Ký</span>
+                    </i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="mobile-menu-wrap ">
+        <div class="slicknav_menu ">
+            <nav class="slicknav_nav slicknav_hidden " aria-hidden="true " role="menu " style="display: none; ">
+                <ul class="header__ul ">
+                    <li [routerLinkActive]=" 'active' "><a href="# " [routerLink]="['/home'] ">Trang Chủ</a></li>
+                    <li [routerLinkActive]=" 'active' "><a href="# " [routerLink]="['/menu'] ">Sản Phẩm</a></li>
+                    <li [routerLinkActive]=" 'active' " *ngIf="userModel?.customer?.role?.roleId==1"><a href="# " [routerLink]="['/history'] ">Lịch sử</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Humberger End -->
+
+<!-- Header Section Begin -->
+<header class="header ">
+    <div class="container navbar ">
+        <div class="row ">
+            <div class="col-lg-3 ">
+                <div class=" ">
+                    <a [routerLink]="['/home']"><img src="assets/img/logo.png " alt=" " class="header__logo "></a>
+                </div>
+            </div>
+            <div class="col-lg-5 ">
+                <nav class="header__menu ">
+                    <ul class="header__ul ">
+                        <li [routerLinkActive]=" 'active' "><a href="#" [routerLink]="['/home'] ">Trang Chủ</a></li>
+                        <li [routerLinkActive]=" 'active' "><a href="#" [routerLink]="['/menu'] ">Sản Phẩm</a></li>
+                        <li [routerLinkActive]=" 'active' " *ngIf="userModel?.customer?.role?.roleId==1 "><a [routerLink]="[ '/history'] ">Lịch sử</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-4 ">
+                <div class="header__cart ">
+                    <ul class="header__ul " *ngIf="userModel?.customer?.role?.roleId==1 ">
+                        <li>
+                            <a href="# " [routerLink]="['/favorite'] ">
+                                <i class="fa fa-heart tooltipHeader ">
+                                    <span class="tooltiptext ">Menu ưa thích</span>
+                                </i>
+                                <span>{{checkFavoriteAmount()}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/cart'] ">
+                                <i class="fa fa-shopping-bag tooltipHeader ">
+                                    <span class="tooltiptext ">Giỏ hàng của bạn</span>
+                                </i>
+                                <span>{{checkCartAmount()}}</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <div class="header__item__dropdown ">
+                                <i class="fa fa-user "></i>
+                                <ul class="header__menu__dropdown dropdown_left ">
+                                    <li><a [routerLink]="['/accountinfo']">Cập Nhật Tài Khoản</a></li>
+                                    <li><a [routerLink]="['/logout']" (click)="logout() ">Đăng Xuất</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="header__ul " *ngIf="userModel==null">
+                        <li class="cursor-auto">
+                            <div class="header__item__dropdown  cursor-pointer">
+                                <i [routerLink]="['/login']" class="fa fa-user mr-3 line-separator-header">
+                                    <span class="footer-ybwc-desc"> Đăng Nhập</span>
+                                </i>
+                                <i [routerLink]="['/register']" class="fa ">
+                                    <span class="footer-ybwc-desc"> Đăng Ký</span>
+                                </i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="humberger__open " (click)="humbergerOnclick() ">
+            <i class="fa fa-bars "></i>
+        </div>
+    </div>
+    <div class="header__top ">
+        <div class="container ">
+            <marquee direction="left ">
+                <div class="row ">
+                    <div class="col-lg-6 col-md-6 ">
+                        <div class="header__top__left ">
+                            <ul>
+                                <li>CỰC HOT! TỪ NGÀY 1/12/2021, ÁP DỤNG CHƯƠNG TRÌNH KHUYẾN MÃI LÊN ĐẾN 50% TRÊN TỪNG MÓN. ĐẶT MÓN NGAY THÔI NÀO!</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </marquee>
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->
